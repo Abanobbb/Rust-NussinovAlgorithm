@@ -36,7 +36,7 @@ fn main() -> Result<(), io::Error> {
         
         // Output the results
         println!("Folding score: {}", folding_score);
-        println!("Number of pairings: {}", pairings.len());
+        //println!("Number of pairings: {}", pairings.len());
         visualize_structure(&seq, &pairings);
         
         // Check if the folding score equals the number of pairings
