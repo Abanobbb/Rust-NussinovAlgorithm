@@ -20,8 +20,7 @@ cargo run --release -- path-to-fastq.fastq
 
 ## Example Output
 
-Upon successful execution, the tool provides the folding score, the number of pairings, the RNA sequence, and the predicted secondary structure in dot-bracket notation.
+Upon successful execution, the tool provides the folding score, and the predicted secondary structure in dot-bracket notation.
 
 Folding score: 39
-Sequence: CTGGTGTACTTCGTTCATTACCTCGGAAGGGTGTTTATGATCGCCTACCGTGACGATTCCGTTGTAGTCATCTGCTTTTTCTGTTGGTGCTGATATTGCGTTATGCATGAACGTAATGCTCATTGGATTGTGAATCCTGCATGCGCGGAAAGATAGAGGCGACAGGCAAGTACAGACGACTACAAACGGAATCAG
 Structure: (.......(..((..)....((.())..)))..........()((..(().).()...(()..)..).(..(.().....(.)..)).)(.)......().....(..)..().....(.(...)).........((.((..()))))..........()(.).(()..(..).(.)(.)..)...()(...).)
