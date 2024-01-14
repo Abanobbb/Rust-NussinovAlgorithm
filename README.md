@@ -16,7 +16,7 @@ To run the application, use the following command:
 
 ```bash
 cargo run --release -- path-to-fastq.fastq
-```
+
 
 ## Example Output
 
