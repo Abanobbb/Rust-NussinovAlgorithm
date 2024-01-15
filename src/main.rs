@@ -5,13 +5,14 @@ mod visualization;
 use reader::read_fastq;
 use algorithms::nussinov::*;
 use visualization::dot_bracket::*;
+use visualization::ascii::*;
 
 use std::io::{self, Error, ErrorKind};
 use std::env;
 
 
 
-use std::thread;
+//use std::thread;
 
 fn main() -> Result<(), io::Error> {
     let args: Vec<String> = env::args().collect();
@@ -37,11 +38,17 @@ fn main() -> Result<(), io::Error> {
         // Output the results
         println!("Folding score: {}", folding_score);
         //println!("Number of pairings: {}", pairings.len());
-        visualize_structure(&seq, &pairings);
+        visualize_structure_dot_bracket(&seq, &pairings);
         
         // Check if the folding score equals the number of pairings
         assert_eq!(folding_score as usize, pairings.len(), "The folding score does not match the number of pairings.");
+
+        //visualize_ascii_art(&seq, &pairings);
+        visualize_verbose_ascii_art(&seq, &pairings)
+
     }
 
     Ok(())
 }
+
+
