@@ -30,7 +30,7 @@ This project is being developed as a learning exercice to explore structural bio
 
 ```bash
 # Clone the repository from GitHub
-git clone [https://github.com/username/rna-structure-cli.git](https://github.com/Abanobbb/Rust-NussinovAlgorithm.git)
+git clone https://github.com/Abanobbb/Rust-NussinovAlgorithm.git
 cd Rust-NussinovAlgorithm
 
 # Build the project with Cargo
@@ -106,8 +106,7 @@ Different elements of the structure are depicted using these symbols:
 
 ### Visualization Example
 
-Given the sequence "GGGAAAUCCCUUU" and base pairings like `[(0, 12), (1, 11), (2, 10), (3, 9), (4, 8)]`, the ASCII art would be:
-
+Given the sequence "GGGAAAUCCCUUU" and base pairings like `[(0, 12), (1, 11), (2, 10), (3, 9), (4, 8)]`
 ```plaintext
 0         1
 0123456789012
