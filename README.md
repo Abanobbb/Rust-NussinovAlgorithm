@@ -25,7 +25,7 @@ This command-line tool is designed to predict RNA secondary structures using the
 
 
 
-## Installation and usage 
+## Installation
 
  make sure you have Rust and Cargo installed. then:
 
@@ -36,7 +36,7 @@ cd Rust-NussinovAlgorithm
 
 # Build the project with Cargo
 cargo build --release
-
+```
 
 
 ## Usage
@@ -44,6 +44,10 @@ cargo build --release
 To run the application, use the following command:
 
 ```bash
+cargo run  -- 'AUGGCUACG'   
+
+// OR
+
 cargo run  -- path_to_fastq.fastq
 ```
 
