@@ -51,11 +51,12 @@ cargo run  -- path_to_fastq.fastq
 
 ## Example output
 
-```plaintext
 
 Input RNA Sequence:
 AUGGCUACGAUUAGCUACG
 
+
+```plaintext
 Predicted Secondary Structure in Dot-Bracket Notation:
 .(((..(((...)))..)))
 
