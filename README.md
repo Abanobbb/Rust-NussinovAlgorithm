@@ -3,17 +3,16 @@
 
 ## Overview
 
-This command-line tool is designed to predict RNA secondary structures using the Nussinov algorithm. It outputs the structure in a dot-bracket notation and provides a visual representation using ASCII art.
+So far This is a command-line tool is designed to predict RNA secondary structures using the Nussinov algorithm. It outputs the structure in a dot-bracket notation and provides a visual representation using ASCII art.
 
 
-## Current work
+## For learning
 
-- Accepts a FASTQ file containing RNA sequences.
-- Applies the Nussinov algorithm to predict the most stable secondary structure.
-- Outputs the secondary structure in dot-bracket notation and ASCII
+This project is being developed as a learning exercice to explore structural biology and the Rust programming language
 
 
-## Features
+
+## Current Features
 
 - **RNA Sequence Input**: The tool can read RNA sequences from FASTQ files.
 - **Structure Prediction**: Applies the Nussinov algorithm to predict RNA secondary structures.
