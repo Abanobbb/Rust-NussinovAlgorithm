@@ -2,17 +2,16 @@ mod reader;
 mod algorithms;
 mod visualization;
 
+
+
+
 use reader::read_fastq;
 use algorithms::nussinov::*;
 use visualization::dot_bracket::*;
 use visualization::ascii::*;
 
-use std::io::{self, Error, ErrorKind};
 use std::env;
-
-
-
-//use std::thread;
+use std::io::{self, Error, ErrorKind};
 
 fn main() -> Result<(), io::Error> {
     let args: Vec<String> = env::args().collect();
@@ -20,35 +19,34 @@ fn main() -> Result<(), io::Error> {
     if args.len() < 2 {
         return Err(Error::new(
             ErrorKind::InvalidInput,
-            "No path to FASTQ file provided",
+            "Please provide an RNA sequence or a path to a FASTQ file.",
         ));
     }
 
-    let fastq_path = &args[1];
-    let sequences = read_fastq(fastq_path)?;
+    let input = &args[1];
+    let sequences: Vec<String>;
+
+    // Check if the input is a valid RNA sequence
+    if input.chars().all(|c| matches!(c, 'A' | 'U' | 'G' | 'C')) {
+        // Treat input as RNA sequence
+        sequences = vec![input.clone()];
+    } else {
+        // Treat input as FASTQ file path
+        sequences = read_fastq(input)?;
+    }
 
     for seq in sequences {
-        // Run the Nussinov RNA folding algorithm and get backtracking information
         let (folding_score, backtrack) = nussinov_rna_folding(&seq);
-        
-        // Reconstruct the base pairings using backtracking
         let mut pairings = Vec::new();
         reconstruct(&backtrack, 0, seq.len() - 1, &mut pairings);
-        
-        // Output the results
+
         println!("Folding score: {}", folding_score);
-        //println!("Number of pairings: {}", pairings.len());
         visualize_structure_dot_bracket(&seq, &pairings);
-        
-        // Check if the folding score equals the number of pairings
+
         assert_eq!(folding_score as usize, pairings.len(), "The folding score does not match the number of pairings.");
 
-        //visualize_ascii_art(&seq, &pairings);
-        visualize_verbose_ascii_art(&seq, &pairings)
-
+        visualize_verbose_ascii_art(&seq, &pairings);
     }
 
     Ok(())
 }
-
-
