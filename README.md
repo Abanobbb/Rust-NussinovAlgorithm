@@ -51,6 +51,8 @@ cargo run  -- path_to_fastq.fastq
 
 ## Example output
 
+```plaintext
+
 Input RNA Sequence:
 AUGGCUACGAUUAGCUACG
 
@@ -70,7 +72,7 @@ AUGGCUACGAUUAGCUACG
   |              
   └─────@────────
 
-
+```
   
 
 
@@ -108,8 +110,8 @@ Given the sequence "GGGAAAUCCCUUU" and base pairings like `[(0, 12), (1, 11), (2
 GGGAAAUCCCUUU
 =┄┄---===┄┄=
 | |   | | | |
-| └-O-┘ | | |
+| └-o-┘ | | |
 |       | | |
-└──0───┘ | |
+└──o───┘ | |
           | |
-          └─@
+          └─o
