@@ -17,12 +17,12 @@ pub fn visualize_ascii_art(seq: &str, pairings: &Vec<(usize, usize)>) {
 
     // Print each line of the ASCII art
     println!("Sequence:   {}", seq);
-    for row in art.iter().rev() { // Reverse to have the bottom line printed last
+    for row in art.iter().rev() {
+        // Reverse to have the bottom line printed last
         let line: String = row.iter().collect();
         println!("{}", line);
     }
 }
-
 
 pub fn visualize_verbose_ascii_art(seq: &str, pairings: &Vec<(usize, usize)>) {
     let height = pairings.iter().map(|&(i, j)| j - i).max().unwrap_or(0) + 1;
@@ -63,7 +63,7 @@ pub fn visualize_verbose_ascii_art(seq: &str, pairings: &Vec<(usize, usize)>) {
                 art[k][i] = base_pair_symbol(seq.as_bytes()[i] as char, seq.as_bytes()[j] as char);
                 art[k][j] = base_pair_symbol(seq.as_bytes()[i] as char, seq.as_bytes()[j] as char);
                 if loop_size > 0 {
-                    for l in i+1..j {
+                    for l in i + 1..j {
                         art[k][l] = symbol;
                     }
                 }
@@ -77,8 +77,6 @@ pub fn visualize_verbose_ascii_art(seq: &str, pairings: &Vec<(usize, usize)>) {
         println!("{}", line);
     }
 }
-
-
 
 pub fn visualize_compact_rna(seq: &str, pairings: &Vec<(usize, usize)>) {
     let width = seq.len();
@@ -99,17 +97,17 @@ pub fn visualize_compact_rna(seq: &str, pairings: &Vec<(usize, usize)>) {
         let symbol = base_pair_symbol(seq.as_bytes()[i] as char, seq.as_bytes()[j] as char);
         art[1][i] = '╭';
         art[1][j] = '╮';
-        for k in i+1..j {
+        for k in i + 1..j {
             art[1][k] = symbol;
         }
     }
 
     // Draw vertical lines for base stacking
     for &(i, j) in pairings {
-        if i > 0 && art[1][i-1] != '╭' {
+        if i > 0 && art[1][i - 1] != '╭' {
             art[0][i] = '│';
         }
-        if j < width - 1 && art[1][j+1] != '╮' {
+        if j < width - 1 && art[1][j + 1] != '╮' {
             art[2][j] = '│';
         }
     }
@@ -119,4 +117,3 @@ pub fn visualize_compact_rna(seq: &str, pairings: &Vec<(usize, usize)>) {
         println!("{}", line);
     }
 }
-

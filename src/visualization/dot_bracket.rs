@@ -1,6 +1,3 @@
-
-
-
 pub fn visualize_structure_dot_bracket(seq: &str, pairings: &Vec<(usize, usize)>) {
     let mut structure = vec!['.'; seq.len()];
     for &(i, j) in pairings {

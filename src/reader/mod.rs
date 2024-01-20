@@ -1,11 +1,8 @@
-
-
 extern crate bio;
 use bio::io::fastq;
 use std::fs::File;
 use std::io::{self, Error, ErrorKind};
 use std::path::Path;
-
 
 pub fn read_fastq<P: AsRef<Path>>(path: P) -> Result<Vec<String>, io::Error> {
     let reader = File::open(path)?;
@@ -19,5 +16,3 @@ pub fn read_fastq<P: AsRef<Path>>(path: P) -> Result<Vec<String>, io::Error> {
 
     Ok(sequences)
 }
-
-

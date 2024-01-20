@@ -5,8 +5,6 @@ pub fn match_score(a: char, b: char) -> i32 {
     }
 }
 
-
-
 pub fn nussinov_rna_folding(seq: &str) -> (i32, Vec<Vec<Option<usize>>>) {
     let length = seq.len();
     let mut dp = vec![vec![0; length]; length];
@@ -30,7 +28,7 @@ pub fn nussinov_rna_folding(seq: &str) -> (i32, Vec<Vec<Option<usize>>>) {
             }
 
             // Pair 'i' with 'k' where k is in [i+1..j-1]
-            for t in i+1..j {
+            for t in i + 1..j {
                 if match_score(seq_chars[i], seq_chars[t]) > 0 {
                     let possible_val = dp[i + 1][t - 1] + dp[t + 1][j] + 1;
                     if possible_val > max_val {
@@ -48,7 +46,12 @@ pub fn nussinov_rna_folding(seq: &str) -> (i32, Vec<Vec<Option<usize>>>) {
     (dp[0][length - 1], backtrack)
 }
 
-pub fn reconstruct(backtrack: &Vec<Vec<Option<usize>>>, i: usize, j: usize, pairings: &mut Vec<(usize, usize)>) {
+pub fn reconstruct(
+    backtrack: &Vec<Vec<Option<usize>>>,
+    i: usize,
+    j: usize,
+    pairings: &mut Vec<(usize, usize)>,
+) {
     if i < j {
         if let Some(k) = backtrack[i][j] {
             if k == j {
