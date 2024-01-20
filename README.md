@@ -1,4 +1,8 @@
 
+[![Rust](https://github.com/Abanobbb/Rust-NussinovAlgorithm/actions/workflows/test.yaml/badge.svg)](https://github.com/Abanobbb/Rust-NussinovAlgorithm/actions/workflows/test.yaml)
+
+
+
 # RNA Secondary Structure Prediction and Visualization CLI
 
 ## Overview
